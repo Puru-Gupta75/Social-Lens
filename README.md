@@ -79,13 +79,15 @@ Link : https://www.kaggle.com/datasets/kundanbedmutha/instagram-analytics-datase
 
 ## Project Structure
 
+```text
 project/
-├── main.py                 # Core application, UI logic, and control flow
-├── preprocessing.py        # Robust data pipeline (mapping, outliers, etc.)
-├── insights_engine.py      # Statistical analysis and insight generation logic
-├── dva_project_dataset.csv # Sample dataset for analysis
-└── README.md               # Project documentation
-
+├── main.py                         # Core application, UI logic, and control flow
+├── preprocessing.py                # Robust data pipeline (mapping, outliers, etc.)
+├── insights_engine.py              # Statistical analysis and insight generation logic
+├── Dataset/                        # Directory to store raw data
+│   └── dva_project_dataset.csv     # Dataset for analysis
+└── README.md                       # Project documentation
+```
 
 ## Installation & Setup
 
