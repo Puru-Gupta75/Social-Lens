@@ -60,7 +60,7 @@ Link : https://www.kaggle.com/datasets/kundanbedmutha/instagram-analytics-datase
 
 ---
 
-## 🛠️ Technology Stack & Widgets
+## Technology Stack & Widgets
 
 ### Core Stack
 - **GUI Engine**: Python Tkinter
@@ -87,7 +87,7 @@ project/
 └── README.md               # Project documentation
 
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 ### 1. Prerequisites
 Ensure you have Python 3.8+ installed.
