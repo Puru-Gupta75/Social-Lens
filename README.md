@@ -156,9 +156,7 @@ If `day` or `hour` are missing, they are derived from `date`.
 Store screenshots in `assets/screenshots/` and update the paths below.
 
 **Recommended screenshots**
-- `dashboard-kpis.png` (KPI scorecards and top charts)
-- `dashboard-heatmap.png` (best time to post heatmap)
-- `filters.png` (filter bar with date range and dropdowns)
+- `dashboard.png` (Filters, KPI scorecards and top charts)
 - `insights.png` (auto-generated insights panel)
 - `export.png` (export options and confirmation)
 - `upload.png` (CSV upload flow)
