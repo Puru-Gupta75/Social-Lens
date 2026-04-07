@@ -1,79 +1,91 @@
-# Social Lens - Data Visualization and Analytics Tool
+# Social Lens
 
-An advanced analytics dashboard built with Python to analyze, visualize, and extract insights from social media engagement data.
+Social Lens is a Python-based data visualization and analytics dashboard for exploring social media engagement. It ingests CSV data, cleans and standardizes it, and generates KPI scorecards, charts, and automated insights through an interactive desktop UI.
 
-# Dataset Source : Kaggle
-Dataset Name : Instagram Analytics Dataset
-About Dataset :
-This dataset contains 29,999 Instagram posts with key performance metrics commonly used for content analytics and growth modeling. It includes engagement counts (likes, comments, shares, saves), exposure metrics (reach, impressions), content metadata (media type, category, caption length, hashtags), account features (account type, follower count), traffic source, posting time features, and a performance label.
+---
 
-The dataset is ideal for:
+**Dataset Source (Kaggle)**  
+**Dataset Name:** Instagram Analytics Dataset  
+**Summary:** 29,999 Instagram posts with engagement metrics (likes, comments, shares, saves), reach/impressions, content metadata (media type, category, caption length, hashtags), account features, traffic source, posting time features, and a performance label.
 
-Engagement prediction Performance classification (low/medium/high/viral) Best posting time analysis Traffic source impact Content strategy & optimization EDA / dashboards
+**Ideal for:**
+- Engagement prediction and classification (low/medium/high/viral)
+- Best posting time analysis
+- Traffic source impact analysis
+- Content strategy optimization
+- EDA and dashboarding
 
-What’s included Post identifiers and timestamp features Engagement metrics: likes, comments, shares, saves Reach & impressions Engagement rate (continuous) Content category & media type Traffic source CTA indicator Performance bucket label
+**What is included:**
+- Post identifiers and timestamp features
+- Engagement metrics and engagement rate
+- Content category and media type
+- Traffic source and CTA indicator
+- Performance bucket label
 
-Dataset size Rows: 29,999 Columns: 23 Time span: Nov 2024 – Nov 2025
+**Dataset size:** 29,999 rows, 23 columns  
+**Time span:** Nov 2024 - Nov 2025  
+**Notes:** Some engagement fields include missing values (NaNs). You can impute or drop incomplete rows based on your modeling goals.  
+**Link:** https://www.kaggle.com/datasets/kundanbedmutha/instagram-analytics-dataset
 
-Notes Some engagement fields contain missing values (NaNs). This reflects realistic analytics exports where certain post types or tracking conditions may omit metrics. Users can either impute missing values or remove incomplete rows depending on their modeling goals.
-
-Link : https://www.kaggle.com/datasets/kundanbedmutha/instagram-analytics-dataset
 ---
 
 ## Features
 
-### 1. Robust Data Standardization
-- **Automatic Schema Mapping**: Handles inconsistent column names (e.g., "reach" -> "impressions", "favorites" -> "likes").
-- **Outlier Handling**: Automatically caps extreme data spikes using the IQR method to maintain visualization accuracy.
-- **Data Type Safety**: Converts strings to datetime objects and ensures numeric columns are properly formatted.
-- **Dynamic Feature Recovery**: Automatically derives `day` and `hour` from date strings if they are missing.
+### 1. Dynamic Data Integration (Near Real-Time)
+- Upload CSV files anytime; the dashboard updates instantly without restarting.
+- Flexible enough to handle multiple social media schemas.
 
-### 2. Interactive Dashboard
-- **KPI Scorecards**: Instant view of Total Posts, Avg Engagement, Engagement Rate, and Follower Growth.
-- **10 Statistical Visualizations**:
-    1. **Engagement Over Time (Line Chart)**: Tracks the sum of engagement across dates to spot temporal trends and spikes.
-    2. **Daily Engagement Heatmap**: A matrix showing which hours on which days produce the highest average engagement, using color gradients to spot the 'best time to post'.
-    3. **Avg Engagement by Post Type (Bar Chart)**: Compares performance averages between Reels, Carousels, Static Posts, etc.
-    4. **Engagement Score Distribution (Boxplot)**: Shows the spread (quartiles) of engagement by post type, making it easy to see variance and remaining outliers.
-    5. **Hashtag Count vs Score (Scatter & Regression)**: Plots each post based on its hashtag count to reveal if more hashtags yield better engagement. Includes a Pearson correlation line.
-    6. **Caption Length vs Score (Scatter & Regression)**: Analyzes if longer text descriptions correlate with higher or lower engagement.
-    7. **CTA Comparison (Bar Chart)**: Evaluates the average engagement difference between posts that include a Call-to-Action versus those that don't.
-    8. **Engagement by Traffic Source (Bar Chart)**: Identifies which traffic source (e.g., Explore page vs Home feed) generates the most interactions.
-    9. **Score Distribution + KDE (Histogram)**: Visualizes the overall frequency of engagement scores across the dataset, smoothed with Kernel Density Estimation (KDE) to show probability shapes.
-    10. **Score vs Follower Growth (Scatter)**: Checks the relationship between how viral a post goes (Engagement Score) versus its actual return on audience size (Followers Gained).
-- **Seaborn Integration**: Premium, statistically informed plots with regression lines and KDE distributions.
+### 2. Robust Data Standardization
+- **Automatic Schema Mapping:** Handles inconsistent column names (e.g., `reach` -> `impressions`, `favorites` -> `likes`).
+- **Outlier Handling:** Caps extreme spikes using the IQR method.
+- **Type Safety:** Converts strings to `datetime` and enforces numeric columns.
+- **Feature Recovery:** Derives `day` and `hour` from `date` if missing.
 
-### 3. Smart Filtering
-- **Calendar Selection**: Use `tkcalendar` for precise date range filtering.
-- **Categorical Filters**: Sift data by Post Type, Category, Traffic Source, and CTA.
-- **Instant Refresh**: Dashboard and insights update immediately when filters are applied.
+### 3. Interactive Dashboard
+- **KPI Scorecards:** Total Posts, Avg Engagement, Engagement Rate, Follower Growth.
+- **10 Statistical Visualizations:**
+  1. Engagement Over Time (Line)
+  2. Daily Engagement Heatmap
+  3. Avg Engagement by Post Type (Bar)
+  4. Engagement Score Distribution by Post Type (Boxplot)
+  5. Hashtag Count vs Score (Scatter + Regression)
+  6. Caption Length vs Score (Scatter + Regression)
+  7. CTA Comparison (Bar)
+  8. Engagement by Traffic Source (Bar)
+  9. Score Distribution + KDE (Histogram)
+  10. Score vs Follower Growth (Scatter)
+- **Seaborn-Powered Visuals:** Regression lines, KDE, and statistical styling.
 
-### 4. Data-Driven Insights
-- Automated generation of key findings (e.g., "Reels perform 28% better", "Optimal hashtag count is 6–10").
+### 4. Smart Filtering
+- **Date Range Selection:** Uses `tkcalendar`.
+- **Categorical Filters:** Post Type, Category, Traffic Source, CTA.
+- **Instant Refresh:** Charts and insights update on apply.
 
-### 5. Professional Reporting
-- **Data Export**: Export filtered datasets directly to CSV.
-- **Dynamic Chart Exporting**: Automatically exports all 10 dynamically generated, high-resolution dashboard charts to PNG in a single action, accurately reflecting your filtered data.
+### 5. Data-Driven Insights
+- Auto-generated findings such as "Reels perform 28% better" and "Optimal hashtag count is 6-10".
 
-### 6. Standardized Analytics View
-- **Strict Chart Labels**: Every chart enforces standard professional titling ("Metric vs Dimension") alongside rigorous axis labels to maintain context, minimizing misinterpretation during presentations.
+### 6. Professional Reporting
+- **Export Filtered Data:** Save to CSV.
+- **Export Charts:** Batch-export all dashboard charts to PNG.
+
+### 7. Standardized Analytics View
+- Consistent professional titles and axis labels for every chart.
 
 ---
 
-## Technology Stack & Widgets
+## Technology Stack
 
-### Core Stack
-- **GUI Engine**: Python Tkinter
-- **Data Processing**: Pandas, NumPy
-- **Visuals**: Matplotlib, Seaborn
-- **Statistics**: SciPy (Pearson Correlation)
+**Core Stack**
+- Python, Tkinter, Pandas, NumPy
+- Matplotlib, Seaborn
+- SciPy (Pearson correlation)
 
-### UI Components & Widgets Used
-- **`tkinter.ttk` (Themed Tkinter)**: Used for modern, system-themed widgets replacing standard Tkinter ones (e.g., `ttk.Frame`, `ttk.Label`, `ttk.Button`, `ttk.Combobox`, `ttk.Separator`). We utilized custom styles (e.g., `clam` theme) for a cleaner UI.
-- **`tkcalendar.DateEntry`**: Essential for the dynamic date range filtering (Start Date & End Date), providing an interactive dropdown calendar interface.
-- **`FigureCanvasTkAgg`**: From `matplotlib.backends.backend_tkagg`, this acts as the bridge widget to embed Matplotlib figures and Seaborn charts directly into Tkinter frame containers seamlessly.
-- **`tkinter.Canvas` & `ttk.Scrollbar`**: Used together to create robust scrollable container areas for the dynamically generated charts array and long insight reports.
-- **`tkinter.filedialog` & `tkinter.messagebox`**: Built-in modules for handling CSV upload dialog flows and showing user alerts/errors.
+**UI Components**
+- `tkinter.ttk` (themed widgets)
+- `tkcalendar.DateEntry` (date range picker)
+- `FigureCanvasTkAgg` (embed Matplotlib in Tkinter)
+- `tkinter.Canvas` + `ttk.Scrollbar` (scrollable chart container)
+- `tkinter.filedialog` + `tkinter.messagebox` (uploads and alerts)
 
 ---
 
@@ -81,21 +93,28 @@ Link : https://www.kaggle.com/datasets/kundanbedmutha/instagram-analytics-datase
 
 ```text
 project/
-├── main.py                         # Core application, UI logic, and control flow
-├── preprocessing.py                # Robust data pipeline (mapping, outliers, etc.)
-├── insights_engine.py              # Statistical analysis and insight generation logic
-├── Dataset/                        # Directory to store raw data
-│   └── dva_project_dataset.csv     # Dataset for analysis
-└── README.md                       # Project documentation
++-- main.py                 # Core application, UI logic, control flow
++-- preprocessing.py        # Data pipeline (mapping, outliers, typing)
++-- insights_engine.py      # Statistical analysis and insight generation
++-- Dataset/                # Raw data directory
+   +-- dva_project_dataset.csv
++-- assets/
+   +-- screenshots/        # Project screenshots live here
+        +-- dashboard.png
+        +-- insights.png
+        +-- export.png
+        +-- upload.png
++-- README.md
 ```
 
-## Installation & Setup
+---
+
+## Installation and Setup
 
 ### 1. Prerequisites
-Ensure you have Python 3.8+ installed.
+Python 3.8+
 
 ### 2. Install Dependencies
-Run the following command to install the required libraries:
 ```bash
 pip install pandas matplotlib seaborn scipy tkcalendar
 ```
@@ -109,27 +128,51 @@ python main.py
 
 ## How to Use
 
-1. **Import Data**: Go to the **Upload** page and select your social media CSV file.
-2. **Explore Dashboard**: Navigate to **Dashboard** to see the KPI cards and charts.
-3. **Refine Results**: Use the top filter bar (Date selectors, dropdowns) and click **Apply Filters**.
-4. **Read Findings**: Visit the **Insights** page to see automated data-driven recommendations.
-5. **Export Reports**: Go to **Export** to save your filtered dataset or download the dashboard charts as images.
+1. Import Data: Go to the **Upload** page and select your CSV file.
+2. Explore Dashboard: View KPI cards and charts.
+3. Refine Results: Apply filters (date range, category, traffic source, CTA).
+4. Read Findings: Open the **Insights** page for recommendations.
+5. Export Reports: Save filtered data or export chart images.
 
 ---
 
 ## Data Schema Requirements
 
-The analyzer is now flexible and handles multiple column aliases. Minimum requirements:
+Minimum required columns (aliases supported):
 - `date` (or `created_at`, `post_date`)
 - `likes` (or `favorites`)
 - `comments` (or `replies`)
 - `impressions` (or `views`, `reach`)
 
-The following are automatically standardized if present:
-- `shares`, `saves`, `post_type`, `category`, `traffic_source`, `cta`, `hashtags`, `followers_gained`.
+Automatically standardized if present:
+- `shares`, `saves`, `post_type`, `category`, `traffic_source`, `cta`, `hashtags`, `followers_gained`
 
-*Note: If `day` or `hour` are missing, they are automatically derived from the `date` column.*
+If `day` or `hour` are missing, they are derived from `date`.
 
 ---
 
-## DEVELOPED BY : Puru Gupta 
+## Screenshots
+
+Store screenshots in `assets/screenshots/` and update the paths below.
+
+**Recommended screenshots**
+- `dashboard-kpis.png` (KPI scorecards and top charts)
+- `dashboard-heatmap.png` (best time to post heatmap)
+- `filters.png` (filter bar with date range and dropdowns)
+- `insights.png` (auto-generated insights panel)
+- `export.png` (export options and confirmation)
+- `upload.png` (CSV upload flow)
+
+Example Markdown:
+```md
+![Dashboard KPIs](assets/screenshots/dashboard.png)
+![Insights](assets/screenshots/insights.png)
+![Export](assets/screenshots/export.png)
+![Upload](assets/screenshots/upload.png)
+```
+
+---
+
+## Developed By
+
+Puru Gupta
