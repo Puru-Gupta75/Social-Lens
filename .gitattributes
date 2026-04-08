@@ -1,2 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+build/Social[[:space:]]Lens/Social[[:space:]]Lens.pkg filter=lfs diff=lfs merge=lfs -text
+dist/Social[[:space:]]Lens.exe filter=lfs diff=lfs merge=lfs -text
